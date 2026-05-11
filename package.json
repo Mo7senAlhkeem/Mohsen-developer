@@ -1,0 +1,21 @@
+{
+  "name": "mohsenweb",
+  "version": "1.0.0",
+  "description": "Mohsen Haider Al-Hakim — personal website (frontend + backend)",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install",
+    "migrate": "npm --prefix backend run migrate",
+    "seed": "npm --prefix backend run seed-admin",
+    "setup": "npm run install:all && npm run migrate && npm run seed",
+    "dev:backend": "npm --prefix backend start",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev": "concurrently --kill-others-on-fail --names \"BACKEND,FRONTEND\" --prefix-colors \"magenta,cyan\" \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "start": "npm run dev",
+    "run": "npm run dev",
+    "build": "npm --prefix frontend run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
